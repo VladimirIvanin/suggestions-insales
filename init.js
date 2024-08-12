@@ -98,17 +98,17 @@
                 Suggestions.init(selector, "NAME", Utils.pass, Utils.pass);
             }
         },
-
-        initGranular: function ($surname, $name, $patronymic) {
+        
+        initGranular: function (surnameEl, nameEl, patronymicEl) {
             var fioParts = ["SURNAME", "NAME", "PATRONYMIC"];
             var self = {
-                $surname: $surname,
-                $name: $name,
-                $patronymic: $patronymic,
+                surnameEl: surnameEl,
+                nameEl: nameEl,
+                patronymicEl: patronymicEl,
                 gender: "UNKNOWN",
             };
-            $.each([$surname, $name, $patronymic], function (index, $el) {
-                var sgt = $el.suggestions({
+            [surnameEl, nameEl, patronymicEl].forEach(function ($el, index) {
+                var sgt = $($el).suggestions({
                     token: TOKEN,
                     partner: PARTNER,
                     type: "NAME",
